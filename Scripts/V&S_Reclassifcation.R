@@ -11,7 +11,7 @@ vs_shp <- st_read(here("In", "NRW_LandMap_Visual_SensoryPolygon.shp"))
 
 ####--LMP14 classifcation--####
 
-#> Change vs_shp into non-spatial dataframe (easier to work with - join back to shp later)
+#> Change vs_shp into non-spatial dataframe (easier to work with (problems using dplyr with sf objects - join back to shp later)
 vs_df <- vs_shp %>% st_set_geometry(NULL)
 
 #> Drop columns that are superfluous to the analysis
@@ -38,23 +38,29 @@ CLS_2_unique <- vs_df %>%
 CLS_3_unique <- vs_df %>%
   distinct(CLS_3)
   
-#> assign new LMP values based on current CLS_3 values
-
-#>MYABE USE BETTER SYSTEM THEN CASE WHEN USING BASE R??????
+#> Assign new LMP values based on current CLS_3 values
+#> Add short
 vs_df <- vs_df  %>% 
-  mutate(HLC_Amalg = case_when(
-  BroadType == "Hse" ~ "Residential",
-  
-  HLC_Amalg == "Other" ~ "Other"))
+mutate(LMP14_D_L = ifelse(CLS_3 == "Wooded Upland & Plateaux", "Upland, exposed plateau, valleys, hillsides and scarp slopes. Wooded 20-50%", LMP14_D_L)),
+mutate(LMP14_D_L = ifelse(CLS_3 == "Wooded Upland & Plateaux", "Upland, exposed plateau, valleys, hillsides and scarp slopes. Wooded 20-50%", LMP14_D_L))
 
 
+
+
+
+
+
+#> Check unique values for LMP_14_D_L
+LMP14_D_L_Unique <- vs_df %>%
+  distinct(LMP14_D_L)
+LMP14_D_L_Unique
 
 
 #> Consult the LANDMAP documentation to see
 
 
 
-
+####>
 
 #add new categoryies 14 and 9 - 
 
