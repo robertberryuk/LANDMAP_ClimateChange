@@ -9,22 +9,18 @@ library(here)
 #> Import the LANDMAP Visual and Sensory layer polygon shapefile
 vs_shp <- st_read(here("In", "NRW_LandMap_Visual_SensoryPolygon.shp"))
 
+#> Correct typo in original V&S layer > "Other Costal Wild Land" in CLS_3 (inform NRW of change)
+vs_df <- as.data.frame(lapply(vs_shp, function(x) {gsub("Costal", "Coastal", x)}))
+
+
 ####--LMP14 classifcation--####
 
-#> Change vs_shp into non-spatial dataframe (easier to work with (problems using dplyr with sf objects - join back to shp later)
-vs_df <- vs_shp %>% st_set_geometry(NULL)
+#> drop geometry column for faster computation
+vs_df$geometry <- NULL
 
 #> Drop columns that are superfluous to the analysis
 vs_df <- vs_df %>%
   select(SurveyID, CLS_2, CLS_3)
-
-#> Add new fields to hold the reclassified LMP14 landscape types
-#> Short numeric code field
-vs_df$LMP14_CODE <- "UNASSIGNED"
-#> Full textual description as per project spec
-vs_df$LMP14_D_S <- "UNASSIGNED"
-#> Short textual description (might be useful for mapping - legends, labels etc)
-vs_df$LMP14_D_L <- "UNASSIGNED"
 
 #> Get unique existing group 1 ("CLS_1") level landscape classification types (for info)
 CLS_1_unique <- vs_df %>%
@@ -37,32 +33,24 @@ CLS_2_unique <- vs_df %>%
 #> Get unique existing group 3 ("CLS_3") level landscape classification types (for info)
 CLS_3_unique <- vs_df %>%
   distinct(CLS_3)
-  
-#> Assign new LMP values based on current CLS_3 values
-#> Add short
-vs_df <- vs_df  %>% 
-mutate(LMP14_D_L = ifelse(CLS_3 == "Wooded Upland & Plateaux", "Upland, exposed plateau, valleys, hillsides and scarp slopes. Wooded 20-50%", LMP14_D_L)),
-mutate(LMP14_D_L = ifelse(CLS_3 == "Wooded Upland & Plateaux", "Upland, exposed plateau, valleys, hillsides and scarp slopes. Wooded 20-50%", LMP14_D_L))
+
+# #> Export CLS_3_unique as a CSV file for use in the Lookup table
+# write_csv(CLS_3_unique, (here("In", "CLS3_Unique.csv")))
+
+#> Import the "LMP14_9_Lookup.csv" lookup table
+LMP_lookup <- read.csv(here("In", "LMP14_9_Lookup.csv"))
+
+#> Merge the lookup table with
+vs_df_merged <- merge(vs_df, LMP_lookup, by = "CLS_3", all.x = TRUE)
+
+#> Drop CLS_2 and CLS_3 fields (used for visual checking - not needed for the merge to V&S shapefile)
+vs_df_merged$CLS_3 <- NULL
+vs_df_merged$CLS_2 <- NULL
+
+#> Merge vs_df_merged with the original V&s shapefile
+vs_shp_out <- merge(vs_shp, vs_df_merged, by = "SurveyID", all.x = TRUE)
+
+#> Export updated shapefile
+st_write(vs_shp_out, (here("Out", "LANDMAP_VS_Climate.shp")))
 
 
-
-
-
-
-
-#> Check unique values for LMP_14_D_L
-LMP14_D_L_Unique <- vs_df %>%
-  distinct(LMP14_D_L)
-LMP14_D_L_Unique
-
-
-#> Consult the LANDMAP documentation to see
-
-
-
-####>
-
-#add new categoryies 14 and 9 - 
-
-
-# outpur data then merge by new categories to produce new layers
