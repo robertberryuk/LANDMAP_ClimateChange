@@ -53,4 +53,13 @@ vs_shp_out <- merge(vs_shp, vs_df_merged, by = "SurveyID", all.x = TRUE)
 #> Export updated shapefile
 st_write(vs_shp_out, (here("Out", "LANDMAP_VS_Climate.shp")))
 
+#> Export a simplified shapeile containing only LMP 14 and LMP09 info (for dissolving in QGIS)
+#> Subset VS_shp_out 
+VS_shp_simple <- vs_shp_out %>%
+  select(SurveyID, LMP14_CODE, LMP14_D_L, LMP14_D_S, LMP09_CODE, LMP09_D_L, LMP09_D_S)
+
+#> Export
+st_write(VS_shp_simple, (here("Out", "LANDMAP_VS_ClimateOnly.shp")))
+
+
 
