@@ -9,14 +9,19 @@ library(here)
 #> Import the LANDMAP Visual and Sensory layer polygon shapefile
 vs_shp <- st_read(here("In", "NRW_LandMap_Visual_SensoryPolygon.shp"))
 
-#> Correct typo in original V&S layer > "Other Costal Wild Land" in CLS_3 (inform NRW of change)
-vs_df <- as.data.frame(lapply(vs_shp, function(x) {gsub("Costal", "Coastal", x)}))
 
-
-####--LMP14 classifcation--####
-
+#> create non-sptial version
+vs_df <- vs_shp
 #> drop geometry column for faster computation
-vs_df$geometry <- NULL
+st_geometry(vs_df)  <- NULL
+
+# #> Update UID of Builth showground polygon
+# dat %>% 
+#   mutate(var = replace(var, var != "Candy", "Not Candy"))
+# 
+# vs_df2 <- vs_df %>% 
+#   mutate(UID = replace(UID, UID == "Candy", "Not Candy"))
+####--LMP14 classifcation--####
 
 #> Drop columns that are superfluous to the analysis
 vs_df <- vs_df %>%
