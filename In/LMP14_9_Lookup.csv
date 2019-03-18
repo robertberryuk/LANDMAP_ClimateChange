@@ -1,12 +1,12 @@
 CLS_3,LMP14_CODE,LMP14_D_L,LMP14_D_S,LMP09_CODE,LMP09_D_L,LMP09_D_S
-Wooded Hill & Lower Plateau,LMP14_5,"Upland hills, lower plateau & scarp slopes (wooded >50%)",Upland (wooded hills),LMP9_1,Upland >20% wooded ,Upland (wooded)
-Wooded Hillside& Scarp Slopes,LMP14_5,"Upland hills, lower plateau & scarp slopes (wooded >50%)",Upland (wooded hills),LMP9_1,Upland >20% wooded ,Upland (wooded)
 Hill & Lower Plateau Mosaic,LMP14_1,"Upland, exposed plateau, valleys, hillsides and scarp slopes (wooded 20-50%)",Upland (wooded),LMP9_1,Upland >20% wooded ,Upland (wooded)
 Hillside & Scarp Slopes Mosaic,LMP14_1,"Upland, exposed plateau, valleys, hillsides and scarp slopes (wooded 20-50%)",Upland (wooded),LMP9_1,Upland >20% wooded ,Upland (wooded)
 Mosaic Upland & Plateaux,LMP14_1,"Upland, exposed plateau, valleys, hillsides and scarp slopes (wooded 20-50%)",Upland (wooded),LMP9_1,Upland >20% wooded ,Upland (wooded)
 Open/Wooded Mosaic Upland Valleys,LMP14_1,"Upland, exposed plateau, valleys, hillsides and scarp slopes (wooded 20-50%)",Upland (wooded),LMP9_1,Upland >20% wooded ,Upland (wooded)
 Wooded Upland & Plateaux,LMP14_1,"Upland, exposed plateau, valleys, hillsides and scarp slopes (wooded 20-50%)",Upland (wooded),LMP9_1,Upland >20% wooded ,Upland (wooded)
 Wooded Upland Valleys,LMP14_1,"Upland, exposed plateau, valleys, hillsides and scarp slopes (wooded 20-50%)",Upland (wooded),LMP9_1,Upland >20% wooded ,Upland (wooded)
+Wooded Hill & Lower Plateau,LMP14_5,"Upland hills, lower plateau & scarp slopes (wooded >50%)",Upland (wooded hills),LMP9_1,Upland >20% wooded ,Upland (wooded)
+Wooded Hillside& Scarp Slopes,LMP14_5,"Upland hills, lower plateau & scarp slopes (wooded >50%)",Upland (wooded hills),LMP9_1,Upland >20% wooded ,Upland (wooded)
 Mosaic Lowland Valleys,LMP14_6,"Valleys and rolling lowland (mosaic 20-50% wooded, hedgerow character)",Lowland valleys (hedgerow),LMP9_2,Lowland mosaic >20% wooded  ,Lowland (wooded)
 Mosaic Rolling Lowland,LMP14_6,"Valleys and rolling lowland (mosaic 20-50% wooded, hedgerow character)",Lowland valleys (hedgerow),LMP9_2,Lowland mosaic >20% wooded  ,Lowland (wooded)
 Flat Wooded Lowland,LMP14_8,"Valleys, rolling and flat lowland (wooded >50%)",Lowland (wooded & wetland),LMP9_2,Lowland mosaic >20% wooded  ,Lowland (wooded)
@@ -36,12 +36,12 @@ Open Hill & Lower Plateau,LMP14_4,"Upland valleys, hillsides, lower plateau and 
 Open Hillside & Scarp Slopes,LMP14_4,"Upland valleys, hillsides, lower plateau and scarps (grassland >50%, open, predominantly unwooded) ",Upland (grassland),LMP9_7,Upland open >50% grassland ,Upland (open)
 Open Upland Valleys,LMP14_4,"Upland valleys, hillsides, lower plateau and scarps (grassland >50%, open, predominantly unwooded) ",Upland (grassland),LMP9_7,Upland open >50% grassland ,Upland (open)
 Upland Grazing,LMP14_4,"Upland valleys, hillsides, lower plateau and scarps (grassland >50%, open, predominantly unwooded) ",Upland (grassland),LMP9_7,Upland open >50% grassland ,Upland (open)
+Estuary,LMP14_13,Coastal waters,Water (sea),LMP9_8,Coast,Coast
+Sea,LMP14_13,Coastal waters,Water (sea),LMP9_8,Coast,Coast
 Cliffs & Cliff Tops,LMP14_9,"Coastal edge, cliffs and islands",Coastal edge,LMP9_8,Coast,Coast
 Dunes & Dune Slack,LMP14_9,"Coastal edge, cliffs and islands",Coastal edge,LMP9_8,Coast,Coast
 Intertidal,LMP14_9,"Coastal edge, cliffs and islands",Coastal edge,LMP9_8,Coast,Coast
 Other Coastal Wild Land,LMP14_9,"Coastal edge, cliffs and islands",Coastal edge,LMP9_8,Coast,Coast
 Small island,LMP14_9,"Coastal edge, cliffs and islands",Coastal edge,LMP9_8,Coast,Coast
-Estuary,LMP14_13,Coastal waters,Water (sea),LMP9_8,Coast,Coast
-Sea,LMP14_13,Coastal waters,Water (sea),LMP9_8,Coast,Coast
 Amenity Land,LMP14_11,Amenity and informal space,Developed (amenity),LMP9_9,Amenity and informal space,Amenity land
 Informal Open Space,LMP14_11,Amenity and informal space,Developed (amenity),LMP9_9,Amenity and informal space,Amenity land
